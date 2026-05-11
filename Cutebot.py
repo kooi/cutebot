@@ -6,7 +6,8 @@ CUTEBOT_ADDR = 0x10
 left = 0x04
 right = 0x08
 
-
+# TODO opschonen
+# TODO vertalen
 class CUTEBOT(object):
     """基本描述
 
