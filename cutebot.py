@@ -105,15 +105,3 @@ class Cutebot(object):
         if angle > 180 or angle < 0:
             raise ValueError('angle error,0~180')
         i2c.write(CUTEBOT_ADDR, bytearray([servo + 4, angle, 0, 0]))
-
-
-if __name__ == '__main__':
-    ct = CUTEBOT()
-
-    ct.set_motors_speed(1, 100)
-    ct.set_car_light(left, 90, 90, 90)
-    distance=ct.get_distance()
-    while(True):
-        display.scroll(distance)
-        distance=ct.get_distance()
-        sleep(1000)
