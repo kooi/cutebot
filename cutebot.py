@@ -88,7 +88,7 @@ class Cutebot(object):
             return 10
         elif left == 1 and right == 0:
             return 1
-        else # left == 0 and right == 0:
+        else: # left == 0 and right == 0:
             return 11
 
     def set_servo(self, servo, angle):
