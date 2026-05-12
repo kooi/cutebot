@@ -74,11 +74,11 @@ class Cutebot(object):
 
     def get_tracking(self):
         """
-        返回当前巡线头状态
-        :return:00 均在白色
-                10 左黑右白
-                01 左白右黑
-                11 均在黑色
+        Lees alle IR-sensoren uit
+        :return: 0 - wit, wit
+                10 - zwart, wit
+                 1 - wit, zwart
+                11 - zwart, zwart
         """
         left = self.__pinL.read_digital()
         right = self.__pinR.read_digital()
@@ -88,10 +88,8 @@ class Cutebot(object):
             return 10
         elif left == 1 and right == 0:
             return 1
-        elif left == 0 and right == 0:
+        else # left == 0 and right == 0:
             return 11
-        else:
-            print("Unknown ERROR")
 
     def set_servo(self, servo, angle):
         """基本描述
