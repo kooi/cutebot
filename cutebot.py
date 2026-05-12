@@ -29,7 +29,7 @@ class Cutebot(object):
         Stel de snelheid van linker en rechter motor in
         :param left_wheel_speed: -100 - 100
         :param right_wheel_speed: -100 - 100
-        :return: none
+        :return: None
         """
         if left_wheel_speed > 100 or left_wheel_speed < -100:
             raise ValueError('speed error,-100~100')
@@ -57,11 +57,11 @@ class Cutebot(object):
             raise ValueError('RGB is error')
         i2c.write(CUTEBOT_ADDR, bytearray([light, R, G, B]))
 
-    def get_distance(self, unit: int = 0):
+    def get_distance(self):
         """
-        车头超声波读取距离
-        :param unit:检测距离单位 0 厘米 1 英尺
-        :return:距离
+        Ultrasone afstandssensor (voorkant)
+
+        :return: afstand (in cm)
         """
         self.__pin_e.read_digital()
         self.__pin_t.write_digital(1)
@@ -70,10 +70,7 @@ class Cutebot(object):
         ts = time_pulse_us(self.__pin_e, 1, 25000)
 
         distance = round(ts * 34 / 2 / 1000)
-        if unit == 0:
-            return distance
-        elif unit == 1:
-            return round(distance/30.48,2)
+        return distance
 
     def get_tracking(self):
         """
