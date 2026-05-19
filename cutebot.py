@@ -60,7 +60,6 @@ class Cutebot(object):
     def get_distance(self):
         """
         Ultrasone afstandssensor (voorkant)
-
         :return: afstand (in cm)
         """
         self.__pin_e.read_digital()
